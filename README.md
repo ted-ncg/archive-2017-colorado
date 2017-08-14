@@ -4,7 +4,7 @@ Canteen gift card project for the Visa NCG Enterprise Java course in Highlands R
 
 ## Participants
 
-Add your name...
+Yun Zhou
 
 * Ted M. Young
 
