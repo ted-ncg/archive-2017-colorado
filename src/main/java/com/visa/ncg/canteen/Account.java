@@ -8,7 +8,11 @@ public class Account {
     return balance;
   }
 
-  public void deposit(int amount) {
-    balance += amount;
+  public void deposit(int amount) throws Exception {
+
+    if (amount <= 0)
+      throw new IllegalTransferAmountException();
+    else
+      balance += amount;
   }
 }

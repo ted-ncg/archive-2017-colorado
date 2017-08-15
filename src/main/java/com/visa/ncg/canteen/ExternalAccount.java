@@ -16,7 +16,12 @@ public class ExternalAccount {
     return balance;
   }
 
-  public void withdraw(int amount) {
+  public void withdraw (int amount)throws Exception{
+
     balance -= amount;
+
+      if (balance < 0)
+       throw new InsufficientFundsExceptions();
+
   }
 }
