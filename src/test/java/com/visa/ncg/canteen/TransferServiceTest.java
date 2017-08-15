@@ -20,12 +20,13 @@ public class TransferServiceTest {
   }
 
   @Test
-  public void notHavingSufficientFund2BeTransferred() throws Exception {
+  public void notHavingSufficientFund2BeTransferred() {
     ExternalAccount externalAccount = new ExternalAccount(20);
     Account account = new Account();
     TransferService transferService = new TransferService();
 
-    assertThatThrownBy(() -> {transferService.transfer(externalAccount, account, 100);}).isInstanceOf(Exception.class)
+    assertThatThrownBy(() -> {transferService.transfer(externalAccount, account, 100);})
+            .isInstanceOf(InsufficientFundsException.class)
             .hasMessageContaining("insufficientFunds");
   }
 }
