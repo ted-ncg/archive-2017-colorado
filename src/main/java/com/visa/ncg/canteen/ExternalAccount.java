@@ -17,6 +17,9 @@ public class ExternalAccount {
   }
 
   public void withdraw(int amount) {
+    if (amount > balance) {
+      throw new InsufficientFundsException();
+    }
     balance -= amount;
   }
 }
