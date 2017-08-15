@@ -16,7 +16,25 @@ public class ExternalAccount {
     return balance;
   }
 
-  public void withdraw(int amount) {
-    balance -= amount;
+  public void withdraw(int amount) throws InsufficientFundsException, IllegalTransferAmmountException {
+
+      if (amount <= 0) {
+        throw new IllegalTransferAmmountException("Error");
+      }
+
+      else if (amount > balance) {
+        throw new InsufficientFundsException("Error");
+      }
+      else
+      {
+        balance -= amount;
+      }
+    }
+
+
+
   }
-}
+
+
+
+
