@@ -25,4 +25,13 @@ public class ExternalAccountWithdrawTest {
         .isInstanceOf(InsufficientFundsException.class);
   }
 
+  @Test
+  public void having30BalanceWithdraw30ResultsInZeroBalance() throws Exception {
+    ExternalAccount externalAccount = new ExternalAccount(30);
+
+    externalAccount.withdraw(30);
+
+    assertThat(externalAccount.getBalance())
+        .isZero();
+  }
 }
