@@ -9,7 +9,7 @@ public class TransferServiceTest {
 
   @Test
   public void transferTenDollarsFromExternalAccountToAccountIncreasesAccountBalance() throws Exception {
-    ExternalAccount externalAccount = new ExternalAccount();
+    ExternalAccount externalAccount = new ExternalAccount(20);
     Account account = new Account();
     TransferService transferService = new TransferService();
 

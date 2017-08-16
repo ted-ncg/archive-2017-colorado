@@ -1,6 +1,6 @@
 package com.visa.ncg.canteen;
 
-public class InsufficientFundsException extends Exception{
+public class InsufficientFundsException extends RuntimeException{
 
     // Parameterless Constructor
     public InsufficientFundsException() {}
