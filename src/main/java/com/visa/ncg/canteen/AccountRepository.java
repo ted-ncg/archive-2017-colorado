@@ -4,22 +4,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class AccountRepository {
 
   private Map<Long, Account> accountIdMap = new HashMap<>();
 
-  private final AtomicLong sequence = new AtomicLong();
+  private final Sequence sequence;
 
-  public AccountRepository(List<Account> accounts) {
+  public AccountRepository(List<Account> accounts, Sequence sequence) {
+    this.sequence = sequence;
     for (Account account: accounts) {
       accountIdMap.put(account.getId(), account);
     }
   }
 
-  public AccountRepository() {
+  public AccountRepository(Sequence sequence) {
     // empty
+    this.sequence = sequence;
   }
 
   public List<Account> findAll() {
@@ -32,7 +33,7 @@ public class AccountRepository {
 
   public Account save(Account account) {
     if (account.getId() == null) {
-      account.setId(sequence.getAndIncrement());
+      account.setId(sequence.nextValue());
     }
     accountIdMap.put(account.getId(), account);
 
