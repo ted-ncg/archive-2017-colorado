@@ -1,10 +1,14 @@
 package com.visa.ncg.canteen;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class AccountRepository {
 
   private Map<Long, Account> accountIdMap = new HashMap<>();
@@ -18,6 +22,7 @@ public class AccountRepository {
     }
   }
 
+  @Autowired
   public AccountRepository(Sequence sequence) {
     // empty
     this.sequence = sequence;
