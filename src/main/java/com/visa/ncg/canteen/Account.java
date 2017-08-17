@@ -20,4 +20,12 @@ public class Account {
   public Long getId() {
     return id;
   }
+
+  @Override
+  public String toString() {
+    return "Account{" +
+        "balance=" + balance +
+        ", id=" + id +
+        '}';
+  }
 }
