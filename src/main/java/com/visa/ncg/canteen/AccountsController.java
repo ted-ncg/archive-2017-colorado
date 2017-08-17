@@ -21,12 +21,8 @@ public class AccountsController {
   @GetMapping("/{id}")
   public Account getAccountInfo(@PathVariable("id") String stringId) {
     long accountId = Long.valueOf(stringId);
-    // accountRepository.findOne(accountId)
-    Account account = new Account();
-    account.deposit(22);
-
+    Account account = accountRepository.findOne(accountId);
     return account;
   }
-
 
 }
