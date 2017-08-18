@@ -7,5 +7,8 @@
 <body>
 <h1>Account: <span th:text="${account.id}">9999</span></h1>
 <h2>Balance: $<span th:text="${account.balance}">99.99</span></h2>
+<h3>Converted: $<span th:text="${converted}">99.99</span></h3>
+
+<a th:href = "@{/deposit/{id}(id=${account.id})}">Deposit</a>
 </body>
 </html>

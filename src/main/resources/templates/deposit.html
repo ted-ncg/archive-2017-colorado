@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Deposit Money</title>
+    <style type="text/css">
+        .btn {
+            border-radius: 5px;
+            border-color: #1dc45a;
+            color: #ffffff;
+            font-size: 18px;
+            background: #179c53;
+            padding: 10px 20px 10px 20px;
+        }
+        .btn:hover {
+            background: #1dc45a;
+        }
+    </style>
+</head>
+<body>
+<h2>Deposit Money to <span th:text="${account.id}">17</span>:</h2>
+<p>Current Balance: $<span th:text="${account.balance}">100</span></p>
+<hr/>
+<h2>How much to deposit?</h2>
+<form action="#" th:action="@{/deposit}" th:object="${depositForm}" method="post">
+    <input type="hidden" th:field="*{accountId}"/>
+    <p>Amount: $<input th:field="*{amount}"/></p>
+    <p><button class="btn">Deposit!</button></p>
+</form>
+</body>
+</html>
