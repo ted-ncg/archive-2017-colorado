@@ -24,7 +24,6 @@ public class AccountRepository {
 
   @Autowired
   public AccountRepository(Sequence sequence) {
-    // empty
     this.sequence = sequence;
   }
 

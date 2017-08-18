@@ -7,17 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/account")
-public class WebController {
+public class AccountController {
 
   private AccountRepository accountRepository;
 
   @Autowired
-  public WebController(AccountRepository accountRepository) {
+  public AccountController(AccountRepository accountRepository) {
     this.accountRepository = accountRepository;
   }
 
@@ -32,16 +31,7 @@ public class WebController {
 
   @GetMapping("/")
   public String allAccounts(Model model) {
-    List<Account> accounts = new ArrayList<>();
-    Account account1 = new Account();
-    account1.setId(10L);
-    account1.deposit(23);
-    accounts.add(account1);
-    Account account2 = new Account();
-    account2.setId(11L);
-    account2.deposit(3);
-    accounts.add(account2);
-
+    List<Account> accounts = accountRepository.findAll();
     model.addAttribute("accounts", accounts);
     return "all-accounts";
   }
