@@ -13,7 +13,7 @@ public class AccountDataLoader implements ApplicationRunner {
   }
 
   /**
-   * Add two accounts to the repository with IDs 1, 10, and 11
+   * Add accounts to the repository with IDs 1, 10, and 11
    */
   @Override
   public void run(ApplicationArguments args) throws Exception {

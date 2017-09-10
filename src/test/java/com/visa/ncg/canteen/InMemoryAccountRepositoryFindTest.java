@@ -8,13 +8,13 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AccountRepositoryFindTest {
+public class InMemoryAccountRepositoryFindTest {
 
   @Test
   public void findAllForEmptyRepositoryReturnsEmptyList() throws Exception {
-    AccountRepository accountRepository = new AccountRepository(new AtomicLongSequence());
+    InMemoryAccountRepository inMemoryAccountRepository = new InMemoryAccountRepository(new AtomicLongSequence());
 
-    assertThat(accountRepository.findAll())
+    assertThat(inMemoryAccountRepository.findAll())
         .isEmpty();
   }
 
@@ -28,9 +28,9 @@ public class AccountRepositoryFindTest {
     accounts.add(a1);
     accounts.add(a2);
 
-    AccountRepository accountRepository = new AccountRepository(accounts, new AtomicLongSequence());
+    InMemoryAccountRepository inMemoryAccountRepository = new InMemoryAccountRepository(accounts, new AtomicLongSequence());
 
-    assertThat(accountRepository.findAll())
+    assertThat(inMemoryAccountRepository.findAll())
         .containsAll(accounts)
         .hasSize(2);
   }
@@ -42,18 +42,18 @@ public class AccountRepositoryFindTest {
     a1.setId(1L);
     accounts.add(a1);
 
-    AccountRepository accountRepository = new AccountRepository(accounts, new AtomicLongSequence());
+    InMemoryAccountRepository inMemoryAccountRepository = new InMemoryAccountRepository(accounts, new AtomicLongSequence());
 
-    assertThat(accountRepository.findOne(1L))
+    assertThat(inMemoryAccountRepository.findOne(1L))
         .isEqualTo(a1);
 
   }
 
   @Test
   public void findAccountForNonExistentIdReturnsNull() throws Exception {
-    AccountRepository accountRepository = new AccountRepository(new AtomicLongSequence());
+    InMemoryAccountRepository inMemoryAccountRepository = new InMemoryAccountRepository(new AtomicLongSequence());
 
-    assertThat(accountRepository.findOne(2L))
+    assertThat(inMemoryAccountRepository.findOne(2L))
         .isNull();
   }
 

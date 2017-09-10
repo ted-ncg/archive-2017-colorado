@@ -37,6 +37,6 @@ public class AccountsRestIntegrationTest {
     mockMvc.perform(get("/api/accounts/1"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.id").value(1))
-        .andExpect(jsonPath("$.balance").value("10"));
+        .andExpect(jsonPath("$.balance").value("100"));
   }
 }
